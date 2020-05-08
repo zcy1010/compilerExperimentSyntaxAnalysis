@@ -1,0 +1,12 @@
+ Line22:        _i
+                ^
+	Error: invalid symbol'_'.(At Position: 9.)
+
+ Line55:        if(messagelist.length > 
+                                      ^
+	Error: invalid symbol'>'.(At Position: 31.)
+
+ Line 72:         while((tmp2 < tmp3)&(
+                                     ^
+	Error: invalid symbol'(',there should be &(At Position: 29.)
+
