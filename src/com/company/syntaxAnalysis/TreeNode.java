@@ -44,12 +44,12 @@ public class TreeNode {
         return string;
     }
 
-    public static StringBuilder proOrder(TreeNode nowNode,StringBuilder nowResult,String prefix){
+    public static StringBuilder preOrder(TreeNode nowNode,StringBuilder nowResult,String prefix){
         if(nowNode!=null){
             nowResult.append(prefix+nowNode.toString()+"\r\n");
             if(nowNode.children!=null&&nowNode.children.size()!=0){
                 for(TreeNode node:nowNode.children){
-                    proOrder(nowNode,nowResult,"\t"+prefix);
+                    preOrder(nowNode,nowResult,"\t"+prefix);
                 }
             }
         }
