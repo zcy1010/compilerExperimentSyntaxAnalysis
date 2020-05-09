@@ -1,5 +1,5 @@
 class WhatHappen {
-    public static void main(String[] args) {
+    public static void main(int argc) {
         MyClient mc;
         int handle;
 
@@ -49,7 +49,7 @@ class Client {
 
     public boolean isVoid(){
         boolean flag;
-        if(messagelist.length > 0){
+        if(0 < messagelist.length){
             flag = false;
         }
         else{
@@ -79,7 +79,7 @@ class Client {
     public boolean HolyLight(){
         in = in + 1;
         out = out - 1;
-        Systemout.println(false);
+        System.out.println(false);
     }
 }
 
@@ -91,4 +91,3 @@ class MyClient extend Client{
         return handle;
     }
 }
- 

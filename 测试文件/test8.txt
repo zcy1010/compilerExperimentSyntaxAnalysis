@@ -4,9 +4,7 @@ class WhatHappen {
         int handle;
 
         mc = new MyClient();
-        while(!false){
-            handle = mc.start(10, 10);
-        }
+
     }
 }
 
@@ -19,13 +17,13 @@ class Client {
         index = 0;
         messagelist = new int[10];
         in = 0;
-        out = 0.0;
+        out = 0;
         return true;
     }
     public int run(int host, int port){
         int handle;
         handle = this.Juggling();
-
+        return handle;
     } 
 
     public int getMsg(){
@@ -49,7 +47,7 @@ class Client {
 
     public boolean isVoid(){
         boolean flag;
-        if(messagelist.length > 0){
+        if(0 < messagelist.length){
             flag = false;
         }
         else{
@@ -80,14 +78,15 @@ class Client {
         in = in + 1;
         out = out - 1;
         System.out.println(false);
+        return false;
     }
 }
 
-class MyClient extend Client{
+class MyClient extends MyClient1{
 
     public int start(int host, int port){
         int handle;
-        handle = this.run()
+        handle = this.run();
         return handle;
     }
 }

@@ -301,6 +301,7 @@ public class WordAnalysis {
         for (String temp : tokenList) {
             out.write((temp + "\r\n").getBytes("utf-8"));
         }
+        out.write(("end,EOF" + "\r\n").getBytes("utf-8"));
         out.close();
     }
 

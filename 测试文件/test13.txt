@@ -17,7 +17,7 @@ class Client {
     int index;
     public boolean init(){
         index = 0;
-        messagelist = new int[10];
+        messagelist = new [10];
         in = 0;
         out = 0;
         return true;
@@ -49,7 +49,7 @@ class Client {
 
     public boolean isVoid(){
         boolean flag;
-        if(messagelist.length > 0){
+        if(0 < messagelist.length){
             flag = false;
         }
         else{
@@ -72,7 +72,7 @@ class Client {
             tmp3 = tmp2 * tmp1;
             t = this.HolyLight();
         }
-        return (tmp1*tmp2+tmp3)*messagelist.Length;
+        return (tmp1*tmp2+tmp3)*messagelist.length;
     }
 
 

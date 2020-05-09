@@ -1,6 +1,3 @@
-1flow1=0
-5165.65165
-System.out.println00
 class WhatHappen {
     public static void main(String[] args) {
         MyClient mc;
@@ -16,10 +13,10 @@ class WhatHappen {
 class Client {
     int in;
     int out;
-    int[] messagelist;
+    int[ messagelist;
     int index;
     public boolean init(){
-        _index = 0;
+        index = 0;
         messagelist = new int[10];
         in = 0;
         out = 0;
@@ -52,7 +49,7 @@ class Client {
 
     public boolean isVoid(){
         boolean flag;
-        if(messagelist.length > 0){
+        if(0 < messagelist.length){
             flag = false;
         }
         else{
@@ -69,7 +66,7 @@ class Client {
         tmp1 = 2;
         tmp2 = 3;
         tmp3 = 4;
-        while((tmp2 < tmp3)&(tmp1<tmp2)){
+        while((tmp2 < tmp3)&&(tmp1<tmp2)){
             tmp1 = tmp3 - tmp2;
             tmp2 = tmp2 - tmp1;
             tmp3 = tmp2 * tmp1;

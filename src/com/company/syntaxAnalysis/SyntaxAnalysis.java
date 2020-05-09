@@ -1,6 +1,5 @@
 package com.company.syntaxAnalysis;
 
-import jdk.nashorn.internal.parser.Token;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -67,15 +66,21 @@ public class SyntaxAnalysis {
         if (pointer < tokenList.size()) {
             String temp = tokenList.get(pointer);
             String[] info = temp.split(",");
-            currentToken = TokenType.valueOf(info[1]);
-            currentValue = info[0];
+            if(info.length==2){
+                currentToken = TokenType.valueOf(info[1]);
+                currentValue = info[0];
+            }else {
+                currentToken = TokenType.valueOf("COMMA");
+                currentValue = ",";
+            }
+
             pointer++;
         }
     }
 
     private static void getNextWord() {
         if (pointer < tokenList.size()) {
-            String temp = tokenList.get(pointer + 1);
+            String temp = tokenList.get(pointer);
             String[] info = temp.split(",");
             nextToken = TokenType.valueOf(info[1]);
             nextValue = info[0];
@@ -102,11 +107,9 @@ public class SyntaxAnalysis {
         TreeNode goal = new TreeNode();
         goal.setStatement(Statement.GOAL);
         goal.children.add(MainClass());
-        match(TokenType.LBRACE);
         while (currentToken == TokenType.CLASS) {
             goal.children.add(ClassDeclaration());
         }
-        match(TokenType.RBRACE);
         goal.setTokenType(TokenType.EOF);
         goal.setValue("EOF");
         match(TokenType.EOF);
@@ -137,6 +140,11 @@ public class SyntaxAnalysis {
 
         match(TokenType.RPAREN);
         match(TokenType.LBRACE);
+        getNextWord();
+        while (currentToken == TokenType.INT || currentToken == TokenType.BOOLEAN || (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.IDENTIFIER)) {
+            mainClass.children.add(VarDeclaration());
+            getNextWord();
+        }
         mainClass.children.add(Statement());
         match(TokenType.RBRACE);
         match(TokenType.RBRACE);
@@ -193,7 +201,7 @@ public class SyntaxAnalysis {
         methodDeclaration.setValue(currentValue);
         match(TokenType.IDENTIFIER);
 
-        match(TokenType.LBRACKET);
+        match(TokenType.LPAREN);
         if (currentToken == TokenType.INT || currentToken == TokenType.BOOLEAN || currentToken == TokenType.IDENTIFIER) {
             methodDeclaration.children.add(Type());
 
@@ -237,21 +245,25 @@ public class SyntaxAnalysis {
         TreeNode type = new TreeNode();
         type.setStatement(Statement.TYPE);
         getNextWord();
-        if (currentToken == TokenType.INT && nextToken == TokenType.LBRACKET) {
-            match(TokenType.INT);
-            match(TokenType.LBRACKET);
-            match(TokenType.RBRACKET);
-        }
-        if (currentToken == TokenType.BOOLEAN) {
-            match(TokenType.BOOLEAN);
-        }
-        if (currentToken == TokenType.INT) {
-            match(TokenType.INT);
-        }
-        if (currentToken == TokenType.IDENTIFIER) {
-            type.setTokenType(TokenType.IDENTIFIER);
-            type.setValue(currentValue);
-            match(TokenType.IDENTIFIER);
+        TokenType thisNextToken=nextToken;
+        switch (currentToken) {
+            case INT:
+                if (thisNextToken == TokenType.LBRACKET) {
+                    match(TokenType.INT);
+                    match(TokenType.LBRACKET);
+                    match(TokenType.RBRACKET);
+                } else {
+                    match(TokenType.INT);
+                }
+                break;
+            case BOOLEAN:
+                match(TokenType.BOOLEAN);
+                break;
+            case IDENTIFIER:
+                type.setTokenType(TokenType.IDENTIFIER);
+                type.setValue(currentValue);
+                match(TokenType.IDENTIFIER);
+                break;
         }
         return type;
     }
@@ -302,7 +314,7 @@ public class SyntaxAnalysis {
         TreeNode printStatement = new TreeNode();
         printStatement.setStatement(Statement.PRINTSTATEMENT);
         match(TokenType.SYSTEMOUTPRINTLN);
-        match(TokenType.RPAREN);
+        match(TokenType.LPAREN);
         printStatement.children.add(Expression());
         match(TokenType.RPAREN);
         match(TokenType.SEMICOLON);
@@ -346,24 +358,47 @@ public class SyntaxAnalysis {
         TreeNode statement = new TreeNode();
         statement.setStatement(Statement.STATEMENT);
         getNextWord();
-        if (currentToken == TokenType.LBRACE) {
-            statement.children.add(Statements());
+        TokenType thisNextToken=nextToken;
+        switch (currentToken) {
+            case LBRACE:
+                statement.children.add(Statements());
+                break;
+            case IF:
+                statement.children.add(IfStatement());
+                break;
+            case WHILE:
+                statement.children.add(WhileStatement());
+                break;
+            case SYSTEMOUTPRINTLN:
+                statement.children.add(PrintStatement());
+                break;
+            case IDENTIFIER:
+                if (thisNextToken == TokenType.EQUAL) {
+                    statement.children.add(AssignStatement());
+                }
+                if (thisNextToken == TokenType.LBRACKET) {
+                    statement.children.add(ArrayStatement());
+                }
+                break;
         }
-        if (currentToken == TokenType.IF) {
-            statement.children.add(IfStatement());
-        }
-        if (currentToken == TokenType.WHILE) {
-            statement.children.add(WhileStatement());
-        }
-        if (currentToken == TokenType.SYSTEMOUTPRINTLN) {
-            statement.children.add(PrintStatement());
-        }
-        if (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.EQUAL) {
-            statement.children.add(AssignStatement());
-        }
-        if (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.LBRACKET) {
-            statement.children.add(AssignStatement());
-        }
+//        if (currentToken == TokenType.LBRACE) {
+//            statement.children.add(Statements());
+//        }
+//        if (currentToken == TokenType.IF) {
+//            statement.children.add(IfStatement());
+//        }
+//        if (currentToken == TokenType.WHILE) {
+//            statement.children.add(WhileStatement());
+//        }
+//        if (currentToken == TokenType.SYSTEMOUTPRINTLN) {
+//            statement.children.add(PrintStatement());
+//        }
+//        if (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.EQUAL) {
+//            statement.children.add(AssignStatement());
+//        }
+//        if (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.LBRACKET) {
+//            statement.children.add(ArrayStatement());
+//        }
         return statement;
     }
 
@@ -468,33 +503,65 @@ public class SyntaxAnalysis {
         TreeNode expression = new TreeNode();
         expression.setStatement(Statement.EXPRESSION);
         getNextWord();
-        if (currentToken == TokenType.INTEGERLITERAL) {
-            expression.children.add(IntExpression());
+        TokenType thisNextToken=nextToken;
+        switch (currentToken) {
+            case INTEGERLITERAL:
+                expression.children.add(IntExpression());
+                break;
+            case TRUE:
+                expression.children.add(TrueExpression());
+                break;
+            case FALSE:
+                expression.children.add(FalseExpression());
+                break;
+            case IDENTIFIER:
+                expression.children.add(IdentifierExpression());
+                break;
+            case THIS:
+                expression.children.add(ThisExpression());
+                break;
+            case NEW:
+                if (thisNextToken == TokenType.INT) {
+                    expression.children.add(NewArrayExpression());
+                }
+                if (thisNextToken == TokenType.IDENTIFIER) {
+                    expression.children.add(NewExpression());
+                }
+                break;
+            case EXCLAMATION:
+                expression.children.add(NoExpression());
+                break;
+            case LPAREN:
+                expression.children.add(BraceExpression());
+                break;
         }
-        if (currentToken == TokenType.TRUE) {
-            expression.children.add(TrueExpression());
-        }
-        if (currentToken == TokenType.FALSE) {
-            expression.children.add(FalseExpression());
-        }
-        if (currentToken == TokenType.IDENTIFIER) {
-            expression.children.add(IdentifierExpression());
-        }
-        if (currentToken == TokenType.THIS) {
-            expression.children.add(ThisExpression());
-        }
-        if (currentToken == TokenType.NEW && nextToken == TokenType.INT) {
-            expression.children.add(NewArrayExpression());
-        }
-        if (currentToken == TokenType.NEW && nextToken == TokenType.IDENTIFIER) {
-            expression.children.add(NewExpression());
-        }
-        if (currentToken == TokenType.EXCLAMATION) {
-            expression.children.add(NoExpression());
-        }
-        if (currentToken == TokenType.LPAREN) {
-            expression.children.add(BraceExpression());
-        }
+//        if (currentToken == TokenType.INTEGERLITERAL) {
+//            expression.children.add(IntExpression());
+//        }
+//        if (currentToken == TokenType.TRUE) {
+//            expression.children.add(TrueExpression());
+//        }
+//        if (currentToken == TokenType.FALSE) {
+//            expression.children.add(FalseExpression());
+//        }
+//        if (currentToken == TokenType.IDENTIFIER) {
+//            expression.children.add(IdentifierExpression());
+//        }
+//        if (currentToken == TokenType.THIS) {
+//            expression.children.add(ThisExpression());
+//        }
+//        if (currentToken == TokenType.NEW && nextToken == TokenType.INT) {
+//            expression.children.add(NewArrayExpression());
+//        }
+//        if (currentToken == TokenType.NEW && nextToken == TokenType.IDENTIFIER) {
+//            expression.children.add(NewExpression());
+//        }
+//        if (currentToken == TokenType.EXCLAMATION) {
+//            expression.children.add(NoExpression());
+//        }
+//        if (currentToken == TokenType.LPAREN) {
+//            expression.children.add(BraceExpression());
+//        }
         return expression;
     }
 
@@ -583,21 +650,52 @@ public class SyntaxAnalysis {
         TreeNode L = new TreeNode();
         L.setStatement(Statement.L);
         getNextWord();
-        if (currentToken == TokenType.DOUBLEAND
-                || currentToken == TokenType.LESSTHEN
-                || currentToken == TokenType.PLUS
-                || currentToken == TokenType.HYPHEN
-                || currentToken == TokenType.MULTIPLY) {
-            L.children.add(OPL());
-        } else if (currentToken == TokenType.LBRACKET) {
-            L.children.add(ExpressionL());
-        } else if (currentToken == TokenType.FULLSTOP && nextToken == TokenType.LENGTH) {
-            L.children.add(LengthL());
-        } else if (currentToken == TokenType.FULLSTOP && nextToken == TokenType.IDENTIFIER) {
-            L.children.add(MethodL());
-        } else {
-            L.children.add(NullL());
+        TokenType thisNextToken=nextToken;
+        switch (currentToken){
+            case DOUBLEAND:
+                L.children.add(OPL());
+                break;
+            case LESSTHEN:
+                L.children.add(OPL());
+                break;
+            case PLUS:
+                L.children.add(OPL());
+                break;
+            case HYPHEN:
+                L.children.add(OPL());
+                break;
+            case MULTIPLY:
+                L.children.add(OPL());
+                break;
+            case LBRACKET:
+                L.children.add(ExpressionL());
+            case FULLSTOP:
+                if( thisNextToken == TokenType.LENGTH){
+                    L.children.add(LengthL());
+                }
+                if(thisNextToken == TokenType.IDENTIFIER){
+                    L.children.add(MethodL());
+                }
+                break;
+            default:
+                L.children.add(NullL());
+                break;
         }
+//        if (currentToken == TokenType.DOUBLEAND
+//                || currentToken == TokenType.LESSTHEN
+//                || currentToken == TokenType.PLUS
+//                || currentToken == TokenType.HYPHEN
+//                || currentToken == TokenType.MULTIPLY) {
+//            L.children.add(OPL());
+//        } else if (currentToken == TokenType.LBRACKET) {
+//            L.children.add(ExpressionL());
+//        } else if (currentToken == TokenType.FULLSTOP && nextToken == TokenType.LENGTH) {
+//            L.children.add(LengthL());
+//        } else if (currentToken == TokenType.FULLSTOP && nextToken == TokenType.IDENTIFIER) {
+//            L.children.add(MethodL());
+//        } else {
+//            L.children.add(NullL());
+//        }
         return L;
     }
 

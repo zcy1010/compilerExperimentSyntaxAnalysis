@@ -38,24 +38,24 @@ public class TreeNode {
         String string;
         string = "Statement" + statement.toString();
         if (tokenType != null && value != null) {
-            if(tokenType==TokenType.IDENTIFIER){
+            if (tokenType == TokenType.IDENTIFIER) {
                 String[] identifier = value.split("%");
-                for (int count = 1; count <= identifier.length; count++){
+                for (int count = 1; count <= identifier.length; count++) {
                     string = string + " <" + tokenType.toString() + count + " , " + identifier[count - 1] + ">";
                 }
-            }else {
-                string = string + " <" + tokenType.toString() + " , "+value+"> ";
+            } else {
+                string = string + " <" + tokenType.toString() + " , " + value + "> ";
             }
         }
         return string;
     }
 
-    public static StringBuilder preOrder(TreeNode nowNode,StringBuilder nowResult,String prefix){
-        if(nowNode!=null){
-            nowResult.append(prefix+nowNode.toString()+"\r\n");
-            if(nowNode.children!=null&&nowNode.children.size()!=0){
-                for(TreeNode node:nowNode.children){
-                    preOrder(nowNode,nowResult,"\t"+prefix);
+    public static StringBuilder preOrder(TreeNode nowNode, StringBuilder nowResult, String prefix) {
+        if (nowNode != null) {
+            nowResult.append(prefix + nowNode.toString() + "\r\n");
+            if (nowNode.children != null && nowNode.children.size() != 0) {
+                for (TreeNode node : nowNode.children) {
+                    preOrder(node, nowResult, "\t" + prefix);
                 }
             }
         }

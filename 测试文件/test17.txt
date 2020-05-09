@@ -15,7 +15,7 @@ class Client {
     int out;
     int[] messagelist;
     int index;
-    public boolean init(){
+    public return init(){
         index = 0;
         messagelist = new int[10];
         in = 0;
@@ -49,7 +49,7 @@ class Client {
 
     public boolean isVoid(){
         boolean flag;
-        if(messagelist.length > 0){
+        if(0 < messagelist.length){
             flag = false;
         }
         else{

@@ -1,0 +1,397 @@
+|-StatementGOAL <EOF , EOF> 
+	|-StatementMAINCLASS <IDENTIFIER1 , WhatHappen> <IDENTIFIER2 , args>
+		|-StatementVARDECLARATION <IDENTIFIER1 , mc>
+			|-StatementTYPE <IDENTIFIER1 , MyClient>
+		|-StatementVARDECLARATION <IDENTIFIER1 , handle>
+			|-StatementTYPE
+		|-StatementSTATEMENT
+			|-StatementASSIGNSTATEMENT <IDENTIFIER1 , mc>
+				|-StatementEXPRESSION
+					|-StatementNEWEXPRESSION <IDENTIFIER1 , MyClient>
+						|-StatementL
+							|-StatementNULLL
+	|-StatementCLASSDECLARATION <IDENTIFIER1 , Client>
+		|-StatementVARDECLARATION <IDENTIFIER1 , in>
+			|-StatementTYPE
+		|-StatementVARDECLARATION <IDENTIFIER1 , out>
+			|-StatementTYPE
+		|-StatementVARDECLARATION <IDENTIFIER1 , messagelist>
+			|-StatementTYPE
+		|-StatementVARDECLARATION <IDENTIFIER1 , index>
+			|-StatementTYPE
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , init>
+			|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , index>
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 0> 
+							|-StatementL
+								|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , messagelist>
+					|-StatementEXPRESSION
+						|-StatementNEWARRAYEXPRESSION
+							|-StatementEXPRESSION
+								|-StatementINTEXPRESSION <INTEGERLITERAL , 10> 
+									|-StatementL
+										|-StatementNULLL
+							|-StatementL
+								|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , in>
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 0> 
+							|-StatementL
+								|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , out>
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 0> 
+							|-StatementL
+								|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementTRUEEXPRESSION
+					|-StatementL
+						|-StatementNULLL
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , run> <IDENTIFIER2 , host> <IDENTIFIER3 , port>
+			|-StatementTYPE
+			|-StatementTYPE
+			|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , handle>
+				|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , handle>
+					|-StatementEXPRESSION
+						|-StatementTHISEXPRESSION
+							|-StatementL
+								|-StatementMETHODL <IDENTIFIER1 , Juggling>
+									|-StatementL
+										|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , handle>
+					|-StatementL
+						|-StatementNULLL
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , getMsg>
+			|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , tmp>
+				|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp>
+					|-StatementEXPRESSION
+						|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , messagelist>
+							|-StatementL
+								|-StatementLENGTHL
+									|-StatementL
+										|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementIFSTATEMENT
+					|-StatementEXPRESSION
+						|-StatementTHISEXPRESSION
+							|-StatementL
+								|-StatementMETHODL <IDENTIFIER1 , isVoid>
+									|-StatementL
+										|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementINTEXPRESSION <INTEGERLITERAL , 1> 
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementINTEXPRESSION <INTEGERLITERAL , 2> 
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementIFSTATEMENT
+					|-StatementEXPRESSION
+						|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , index>
+							|-StatementL
+								|-StatementOPL
+									|-StatementEXPRESSION
+										|-StatementINTEXPRESSION <INTEGERLITERAL , 10> 
+											|-StatementL
+												|-StatementNULLL
+									|-StatementL
+										|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementARRAYSTATEMENT <IDENTIFIER1 , messagelist>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , index>
+											|-StatementL
+												|-StatementNULLL
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+											|-StatementL
+												|-StatementNULLL
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , index>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , index>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementINTEXPRESSION <INTEGERLITERAL , 1> 
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , index>
+									|-StatementEXPRESSION
+										|-StatementINTEXPRESSION <INTEGERLITERAL , 0> 
+											|-StatementL
+												|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+					|-StatementL
+						|-StatementNULLL
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , isVoid>
+			|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , flag>
+				|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementIFSTATEMENT
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 0> 
+							|-StatementL
+								|-StatementOPL
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , messagelist>
+											|-StatementL
+												|-StatementLENGTHL
+													|-StatementL
+														|-StatementNULLL
+									|-StatementL
+										|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , flag>
+									|-StatementEXPRESSION
+										|-StatementFALSEEXPRESSION
+											|-StatementL
+												|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , flag>
+									|-StatementEXPRESSION
+										|-StatementTRUEEXPRESSION
+											|-StatementL
+												|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , flag>
+					|-StatementL
+						|-StatementNULLL
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , Juggling>
+			|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , t>
+				|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , tmp1>
+				|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , tmp2>
+				|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , tmp3>
+				|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp1>
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 2> 
+							|-StatementL
+								|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp2>
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 3> 
+							|-StatementL
+								|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp3>
+					|-StatementEXPRESSION
+						|-StatementINTEXPRESSION <INTEGERLITERAL , 4> 
+							|-StatementL
+								|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementWHILESTATEMENT
+					|-StatementEXPRESSION
+						|-StatementBRACEEXPREESION
+							|-StatementEXPRESSION
+								|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+									|-StatementL
+										|-StatementOPL
+											|-StatementEXPRESSION
+												|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp3>
+													|-StatementL
+														|-StatementNULLL
+											|-StatementL
+												|-StatementNULLL
+							|-StatementL
+								|-StatementOPL
+									|-StatementEXPRESSION
+										|-StatementBRACEEXPREESION
+											|-StatementEXPRESSION
+												|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+													|-StatementL
+														|-StatementOPL
+															|-StatementEXPRESSION
+																|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+																	|-StatementL
+																		|-StatementNULLL
+															|-StatementL
+																|-StatementNULLL
+											|-StatementL
+												|-StatementNULLL
+									|-StatementL
+										|-StatementNULLL
+					|-StatementSTATEMENT
+						|-StatementSTATEMENTS
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp1>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp3>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp2>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , tmp3>
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+							|-StatementSTATEMENT
+								|-StatementASSIGNSTATEMENT <IDENTIFIER1 , t>
+									|-StatementEXPRESSION
+										|-StatementTHISEXPRESSION
+											|-StatementL
+												|-StatementMETHODL <IDENTIFIER1 , HolyLight>
+													|-StatementL
+														|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementBRACEEXPREESION
+					|-StatementEXPRESSION
+						|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+							|-StatementL
+								|-StatementOPL
+									|-StatementEXPRESSION
+										|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+											|-StatementL
+												|-StatementOPL
+													|-StatementEXPRESSION
+														|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , tmp3>
+															|-StatementL
+																|-StatementNULLL
+													|-StatementL
+														|-StatementNULLL
+									|-StatementL
+										|-StatementNULLL
+					|-StatementL
+						|-StatementOPL
+							|-StatementEXPRESSION
+								|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , messagelist>
+									|-StatementL
+										|-StatementLENGTHL
+											|-StatementL
+												|-StatementNULLL
+							|-StatementL
+								|-StatementNULLL
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , HolyLight>
+			|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , in>
+					|-StatementEXPRESSION
+						|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , in>
+							|-StatementL
+								|-StatementOPL
+									|-StatementEXPRESSION
+										|-StatementINTEXPRESSION <INTEGERLITERAL , 1> 
+											|-StatementL
+												|-StatementNULLL
+									|-StatementL
+										|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , out>
+					|-StatementEXPRESSION
+						|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , out>
+							|-StatementL
+								|-StatementOPL
+									|-StatementEXPRESSION
+										|-StatementINTEXPRESSION <INTEGERLITERAL , 1> 
+											|-StatementL
+												|-StatementNULLL
+									|-StatementL
+										|-StatementNULLL
+			|-StatementSTATEMENT
+				|-StatementPRINTSTATEMENT
+					|-StatementEXPRESSION
+						|-StatementFALSEEXPRESSION
+							|-StatementL
+								|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementFALSEEXPRESSION
+					|-StatementL
+						|-StatementNULLL
+	|-StatementCLASSDECLARATION <IDENTIFIER1 , MyClient> <IDENTIFIER2 , MyClient1>
+		|-StatementMETHODDECLARATION <IDENTIFIER1 , start> <IDENTIFIER2 , host> <IDENTIFIER3 , port>
+			|-StatementTYPE
+			|-StatementTYPE
+			|-StatementTYPE
+			|-StatementVARDECLARATION <IDENTIFIER1 , handle>
+				|-StatementTYPE
+			|-StatementSTATEMENT
+				|-StatementASSIGNSTATEMENT <IDENTIFIER1 , handle>
+					|-StatementEXPRESSION
+						|-StatementTHISEXPRESSION
+							|-StatementL
+								|-StatementMETHODL <IDENTIFIER1 , run>
+									|-StatementL
+										|-StatementNULLL
+			|-StatementEXPRESSION
+				|-StatementIDENTIFIEREXPRESSION <IDENTIFIER1 , handle>
+					|-StatementL
+						|-StatementNULLL
+
