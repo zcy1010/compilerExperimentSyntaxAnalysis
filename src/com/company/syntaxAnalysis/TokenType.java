@@ -105,6 +105,7 @@ public enum TokenType {
     TABLE,
     ENTER,
 
+    EOF,
     ERROR,
     NULL,
 

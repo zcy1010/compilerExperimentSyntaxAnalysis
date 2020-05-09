@@ -38,8 +38,14 @@ public class TreeNode {
         String string;
         string = "Statement" + statement.toString();
         if (tokenType != null && value != null) {
-            string = string + " <" + tokenType.toString() + " , "+value+"> ";
-
+            if(tokenType==TokenType.IDENTIFIER){
+                String[] identifier = value.split("%");
+                for (int count = 1; count <= identifier.length; count++){
+                    string = string + " <" + tokenType.toString() + count + " , " + identifier[count - 1] + ">";
+                }
+            }else {
+                string = string + " <" + tokenType.toString() + " , "+value+"> ";
+            }
         }
         return string;
     }

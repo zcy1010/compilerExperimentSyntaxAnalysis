@@ -8,9 +8,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
-        String sourceFile = "test1.txt";
-        String outputFile = "tokenOut1.txt";
-        String errorFile = "errorOut1.txt";
+        String sourceFile = "test2.txt";
+        String outputFile = "tokenOut2.txt";
+        String errorFile = "errorOut2.txt";
         WordAnalysis lexer=new WordAnalysis();
 
         List<String> sentences = new ArrayList<>();
