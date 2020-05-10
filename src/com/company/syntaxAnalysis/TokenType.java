@@ -1,5 +1,11 @@
 package com.company.syntaxAnalysis;
 
+/**
+ * 词的类型
+ *
+ * @author zcy10
+ * @version 1.0
+ */
 public enum TokenType {
     //类型
     IDENTIFIER,         //标识符

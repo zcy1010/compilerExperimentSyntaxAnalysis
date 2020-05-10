@@ -4,6 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *主函数
+ *
+ * @author zcy10
+ * @version 1.0
+ */
 public class MainS {
 
     public static void main(String[] args) throws IOException {

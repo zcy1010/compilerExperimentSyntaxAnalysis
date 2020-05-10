@@ -1,5 +1,11 @@
 package com.company.syntaxAnalysis;
 
+/**
+ * 语法树的状态
+ *
+ * @author zcy10
+ * @version 1.0
+ */
 public enum Statement {
 
     GOAL,

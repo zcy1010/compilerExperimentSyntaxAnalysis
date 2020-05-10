@@ -8,6 +8,12 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 语法分析
+ *
+ * @author zcy10
+ * @version 1.0
+ */
 public class SyntaxAnalysis {
     private static TokenType currentToken;//当前TokenType
     private static String currentValue;//当前token的value

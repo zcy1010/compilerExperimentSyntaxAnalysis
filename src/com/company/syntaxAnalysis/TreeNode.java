@@ -3,6 +3,13 @@ package com.company.syntaxAnalysis;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 树
+ *
+ * @author zcy10
+ * @version 1.0
+ *
+ */
 public class TreeNode {
 
     List<TreeNode> children = new ArrayList<>();
