@@ -4,7 +4,9 @@ class WhatHappen {
         int handle;
 
         mc = new MyClient();
-
+        while(!false){
+            handle = mc.start(10, 10);
+        }
     }
 }
 
@@ -23,7 +25,7 @@ class Client {
     public int run(int host, int port){
         int handle;
         handle = this.Juggling();
-        return handle;
+
     } 
 
     public int getMsg(){
@@ -78,15 +80,14 @@ class Client {
         in = in + 1;
         out = out - 1;
         System.out.println(false);
-        return false;
     }
 }
 
-class MyClient extends MyClient1{
+class MyClient extend{
 
     public int start(int host, int port){
         int handle;
-        handle = this.run();
+        handle = this.run()
         return handle;
     }
 }

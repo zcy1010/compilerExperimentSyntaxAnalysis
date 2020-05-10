@@ -36,7 +36,7 @@ public class TreeNode {
 
     public String toString() {
         String string;
-        string = "Statement" + statement.toString();
+        string = "Statement： " + statement.toString();
         if (tokenType != null && value != null) {
             if (tokenType == TokenType.IDENTIFIER) {
                 String[] identifier = value.split("%");

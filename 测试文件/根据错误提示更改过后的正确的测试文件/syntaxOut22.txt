@@ -1,0 +1,393 @@
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , WhatHappen> <IDENTIFIER2 , args>
+		|-Statement： STATEMENT
+			|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , mc>
+				|-Statement： EXPRESSION
+					|-Statement： NEWEXPRESSION <IDENTIFIER1 , MyClient>
+						|-Statement： L
+							|-Statement： NULLL
+	|-Statement： CLASSDECLARATION <IDENTIFIER1 , Client>
+		|-Statement： VARDECLARATION <IDENTIFIER1 , in>
+			|-Statement： TYPE
+		|-Statement： VARDECLARATION <IDENTIFIER1 , out>
+			|-Statement： TYPE
+		|-Statement： VARDECLARATION <IDENTIFIER1 , messagelist>
+			|-Statement： TYPE
+		|-Statement： VARDECLARATION <IDENTIFIER1 , index>
+			|-Statement： TYPE
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , init>
+			|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , index>
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 0> 
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , messagelist>
+					|-Statement： EXPRESSION
+						|-Statement： NEWARRAYEXPRESSION
+							|-Statement： EXPRESSION
+								|-Statement： INTEXPRESSION <INTEGERLITERAL , 10> 
+									|-Statement： L
+										|-Statement： NULLL
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , in>
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 0> 
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , out>
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 0> 
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： TRUEEXPRESSION
+					|-Statement： L
+						|-Statement： NULLL
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , run> <IDENTIFIER2 , host> <IDENTIFIER3 , port>
+			|-Statement： TYPE
+			|-Statement： TYPE
+			|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , handle>
+				|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , handle>
+					|-Statement： EXPRESSION
+						|-Statement： THISEXPRESSION
+							|-Statement： L
+								|-Statement： METHODL <IDENTIFIER1 , Juggling>
+									|-Statement： L
+										|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , handle>
+					|-Statement： L
+						|-Statement： NULLL
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , getMsg>
+			|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , tmp>
+				|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp>
+					|-Statement： EXPRESSION
+						|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , messagelist>
+							|-Statement： L
+								|-Statement： LENGTHL
+									|-Statement： L
+										|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： IFSTATEMENT
+					|-Statement： EXPRESSION
+						|-Statement： THISEXPRESSION
+							|-Statement： L
+								|-Statement： METHODL <IDENTIFIER1 , isVoid>
+									|-Statement： L
+										|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： INTEXPRESSION <INTEGERLITERAL , 1> 
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： INTEXPRESSION <INTEGERLITERAL , 2> 
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： IFSTATEMENT
+					|-Statement： EXPRESSION
+						|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , index>
+							|-Statement： L
+								|-Statement： OPL
+									|-Statement： EXPRESSION
+										|-Statement： INTEXPRESSION <INTEGERLITERAL , 10> 
+											|-Statement： L
+												|-Statement： NULLL
+									|-Statement： L
+										|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ARRAYSTATEMENT <IDENTIFIER1 , messagelist>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , index>
+											|-Statement： L
+												|-Statement： NULLL
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+											|-Statement： L
+												|-Statement： NULLL
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , index>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , index>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： INTEXPRESSION <INTEGERLITERAL , 1> 
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , index>
+									|-Statement： EXPRESSION
+										|-Statement： INTEXPRESSION <INTEGERLITERAL , 0> 
+											|-Statement： L
+												|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp>
+					|-Statement： L
+						|-Statement： NULLL
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , isVoid>
+			|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , flag>
+				|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： IFSTATEMENT
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 0> 
+							|-Statement： L
+								|-Statement： OPL
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , messagelist>
+											|-Statement： L
+												|-Statement： LENGTHL
+													|-Statement： L
+														|-Statement： NULLL
+									|-Statement： L
+										|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , flag>
+									|-Statement： EXPRESSION
+										|-Statement： FALSEEXPRESSION
+											|-Statement： L
+												|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , flag>
+									|-Statement： EXPRESSION
+										|-Statement： TRUEEXPRESSION
+											|-Statement： L
+												|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , flag>
+					|-Statement： L
+						|-Statement： NULLL
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , Juggling>
+			|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , t>
+				|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , tmp1>
+				|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , tmp2>
+				|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , tmp3>
+				|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp1>
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 2> 
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp2>
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 3> 
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp3>
+					|-Statement： EXPRESSION
+						|-Statement： INTEXPRESSION <INTEGERLITERAL , 4> 
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： WHILESTATEMENT
+					|-Statement： EXPRESSION
+						|-Statement： BRACEEXPREESION
+							|-Statement： EXPRESSION
+								|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+									|-Statement： L
+										|-Statement： OPL
+											|-Statement： EXPRESSION
+												|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp3>
+													|-Statement： L
+														|-Statement： NULLL
+											|-Statement： L
+												|-Statement： NULLL
+							|-Statement： L
+								|-Statement： OPL
+									|-Statement： EXPRESSION
+										|-Statement： BRACEEXPREESION
+											|-Statement： EXPRESSION
+												|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+													|-Statement： L
+														|-Statement： OPL
+															|-Statement： EXPRESSION
+																|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+																	|-Statement： L
+																		|-Statement： NULLL
+															|-Statement： L
+																|-Statement： NULLL
+											|-Statement： L
+												|-Statement： NULLL
+									|-Statement： L
+										|-Statement： NULLL
+					|-Statement： STATEMENT
+						|-Statement： STATEMENTS
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp1>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp3>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp2>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , tmp3>
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+							|-Statement： STATEMENT
+								|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , t>
+									|-Statement： EXPRESSION
+										|-Statement： THISEXPRESSION
+											|-Statement： L
+												|-Statement： METHODL <IDENTIFIER1 , HolyLight>
+													|-Statement： L
+														|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： BRACEEXPREESION
+					|-Statement： EXPRESSION
+						|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp1>
+							|-Statement： L
+								|-Statement： OPL
+									|-Statement： EXPRESSION
+										|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp2>
+											|-Statement： L
+												|-Statement： OPL
+													|-Statement： EXPRESSION
+														|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , tmp3>
+															|-Statement： L
+																|-Statement： NULLL
+													|-Statement： L
+														|-Statement： NULLL
+									|-Statement： L
+										|-Statement： NULLL
+					|-Statement： L
+						|-Statement： OPL
+							|-Statement： EXPRESSION
+								|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , messagelist>
+									|-Statement： L
+										|-Statement： LENGTHL
+											|-Statement： L
+												|-Statement： NULLL
+							|-Statement： L
+								|-Statement： NULLL
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , HolyLight>
+			|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , in>
+					|-Statement： EXPRESSION
+						|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , in>
+							|-Statement： L
+								|-Statement： OPL
+									|-Statement： EXPRESSION
+										|-Statement： INTEXPRESSION <INTEGERLITERAL , 1> 
+											|-Statement： L
+												|-Statement： NULLL
+									|-Statement： L
+										|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , out>
+					|-Statement： EXPRESSION
+						|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , out>
+							|-Statement： L
+								|-Statement： OPL
+									|-Statement： EXPRESSION
+										|-Statement： INTEXPRESSION <INTEGERLITERAL , 1> 
+											|-Statement： L
+												|-Statement： NULLL
+									|-Statement： L
+										|-Statement： NULLL
+			|-Statement： STATEMENT
+				|-Statement： PRINTSTATEMENT
+					|-Statement： EXPRESSION
+						|-Statement： FALSEEXPRESSION
+							|-Statement： L
+								|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： FALSEEXPRESSION
+					|-Statement： L
+						|-Statement： NULLL
+	|-Statement： CLASSDECLARATION <IDENTIFIER1 , MyClient> <IDENTIFIER2 , Client>
+		|-Statement： METHODDECLARATION <IDENTIFIER1 , start> <IDENTIFIER2 , host> <IDENTIFIER3 , port>
+			|-Statement： TYPE
+			|-Statement： TYPE
+			|-Statement： TYPE
+			|-Statement： VARDECLARATION <IDENTIFIER1 , handle>
+				|-Statement： TYPE
+			|-Statement： STATEMENT
+				|-Statement： ASSIGNSTATEMENT <IDENTIFIER1 , handle>
+					|-Statement： EXPRESSION
+						|-Statement： THISEXPRESSION
+							|-Statement： L
+								|-Statement： METHODL <IDENTIFIER1 , run>
+									|-Statement： L
+										|-Statement： NULLL
+			|-Statement： EXPRESSION
+				|-Statement： IDENTIFIEREXPRESSION <IDENTIFIER1 , handle>
+					|-Statement： L
+						|-Statement： NULLL
+

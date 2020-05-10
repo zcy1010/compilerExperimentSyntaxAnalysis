@@ -22,6 +22,7 @@ public class SyntaxAnalysis {
 
     public void setTokenList(List<String> tokenList) {
         SyntaxAnalysis.tokenList = tokenList;
+//        System.out.println(tokenList);
     }
 
     /**
@@ -82,8 +83,13 @@ public class SyntaxAnalysis {
         if (pointer < tokenList.size()) {
             String temp = tokenList.get(pointer);
             String[] info = temp.split(",");
-            nextToken = TokenType.valueOf(info[1]);
-            nextValue = info[0];
+            if(info.length==2){
+                nextToken = TokenType.valueOf(info[1]);
+                nextValue = info[0];
+            }else {
+                nextToken = TokenType.valueOf("COMMA");
+                nextValue = ",";
+            }
         }
     }
 
@@ -96,6 +102,7 @@ public class SyntaxAnalysis {
                     currentToken + " , " + currentValue
                     + "> is wrong , The expected token type is \"" +
                     need + "\".";
+//            System.out.println(pointer+"  "+currentToken+"  "+currentValue);
             System.err.println(errorInfo);
             errorList.add(errorInfo);
             nextToken();
@@ -140,11 +147,11 @@ public class SyntaxAnalysis {
 
         match(TokenType.RPAREN);
         match(TokenType.LBRACE);
-        getNextWord();
-        while (currentToken == TokenType.INT || currentToken == TokenType.BOOLEAN || (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.IDENTIFIER)) {
-            mainClass.children.add(VarDeclaration());
-            getNextWord();
-        }
+//        getNextWord();
+//        while (currentToken == TokenType.INT || currentToken == TokenType.BOOLEAN || (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.IDENTIFIER)) {
+//            mainClass.children.add(VarDeclaration());
+//            getNextWord();
+//        }
         mainClass.children.add(Statement());
         match(TokenType.RBRACE);
         match(TokenType.RBRACE);
@@ -264,6 +271,14 @@ public class SyntaxAnalysis {
                 type.setValue(currentValue);
                 match(TokenType.IDENTIFIER);
                 break;
+            default:
+                String errorInfo = "The " + pointer + " Token : <" +
+                        currentToken + " , " + currentValue
+                        + "> is wrong , The expected token type is \"" +
+                        "TYPE" + "\".";
+                System.err.println(errorInfo);
+                errorList.add(errorInfo);
+                nextToken();
         }
         return type;
     }
@@ -534,6 +549,14 @@ public class SyntaxAnalysis {
             case LPAREN:
                 expression.children.add(BraceExpression());
                 break;
+            default:
+                String errorInfo = "The " + pointer + " Token : <" +
+                        currentToken + " , " + currentValue
+                        + "> is wrong , The expected token type is \"" +
+                        "Expression" + "\".";
+                System.err.println(errorInfo);
+                errorList.add(errorInfo);
+                nextToken();
         }
 //        if (currentToken == TokenType.INTEGERLITERAL) {
 //            expression.children.add(IntExpression());
@@ -584,6 +607,14 @@ public class SyntaxAnalysis {
             case MULTIPLY:
                 match(TokenType.MULTIPLY);
                 break;
+            default:
+                String errorInfo = "The " + pointer + " Token : <" +
+                        currentToken + " , " + currentValue
+                        + "> is wrong , The expected token type is \"" +
+                        "OPL" + "\".";
+                System.err.println(errorInfo);
+                errorList.add(errorInfo);
+                nextToken();
         }
         opL.children.add(Expression());
         opL.children.add(L());

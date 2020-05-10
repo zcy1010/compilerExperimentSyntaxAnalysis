@@ -9,7 +9,7 @@ public class MainS {
     public static void main(String[] args) throws IOException {
         String tokenOutFilename = "tokenOut8.txt";
         String syntaxOutFilename = "syntaxOut8.txt";
-        String errorFilename = "syntaxErrorOut8.txt";
+        String errorFilename = "syntaxErrorOut8 .txt";
         System.out.println(32321);
         SyntaxAnalysis Syntax = new SyntaxAnalysis();
 

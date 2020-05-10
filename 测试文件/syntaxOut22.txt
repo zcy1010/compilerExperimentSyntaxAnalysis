@@ -1,0 +1,91 @@
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , WhatHappen> <IDENTIFIER2 , args>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , handle> <IDENTIFIER2 , (>
+		|-Statement： STATEMENT
+			|-Statement： STATEMENTS
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , start> <IDENTIFIER2 , class>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , out> <IDENTIFIER2 , boolean>
+		|-Statement： STATEMENT
+			|-Statement： STATEMENTS
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , messagelist> <IDENTIFIER2 , 0>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , true> <IDENTIFIER2 , int>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , handle> <IDENTIFIER2 , int>
+		|-Statement： STATEMENT
+			|-Statement： STATEMENTS
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , => <IDENTIFIER2 , (>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , -> <IDENTIFIER2 , 2>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , 10> <IDENTIFIER2 , index>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , else> <IDENTIFIER2 , }>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , boolean> <IDENTIFIER2 , )>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , else> <IDENTIFIER2 , }>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , boolean> <IDENTIFIER2 , tmp3>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , => <IDENTIFIER2 , tmp2>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , <> <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , tmp3> <IDENTIFIER2 , HolyLight>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , tmp1> <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , {> <IDENTIFIER2 , ->
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , ;> <IDENTIFIER2 , start>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , )> <IDENTIFIER2 , (>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , end> <IDENTIFIER2 , end>
+		|-Statement： STATEMENT
+

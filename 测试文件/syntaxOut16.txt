@@ -1,0 +1,88 @@
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , WhatHappen> <IDENTIFIER2 , {>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , mc> <IDENTIFIER2 , false>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , start> <IDENTIFIER2 , class>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , out> <IDENTIFIER2 , public>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , => <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , 0> <IDENTIFIER2 , int>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , int> <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , {> <IDENTIFIER2 , if>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , )> <IDENTIFIER2 , {>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , }> <IDENTIFIER2 , index>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , index> <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , boolean> <IDENTIFIER2 , 0>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , flag> <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , int> <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , tmp1> <IDENTIFIER2 , 4>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , tmp3> <IDENTIFIER2 , tmp1>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , => <IDENTIFIER2 , ;>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , )> <IDENTIFIER2 , )>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , public> <IDENTIFIER2 , 1>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , ;> <IDENTIFIER2 , extend>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , int> <IDENTIFIER2 , handle>
+		|-Statement： STATEMENT
+
+|-Statement： GOAL <EOF , EOF> 
+	|-Statement： MAINCLASS <IDENTIFIER1 , return> <IDENTIFIER2 , end>
+		|-Statement： STATEMENT
+
