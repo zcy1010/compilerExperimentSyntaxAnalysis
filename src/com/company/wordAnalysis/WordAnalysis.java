@@ -98,6 +98,8 @@ public class WordAnalysis {
             case "new":
                 reservedWord = TokenType.NEW;
                 break;
+            default:
+                break;
         }
         return reservedWord;
     }
@@ -315,9 +317,11 @@ public class WordAnalysis {
             String pointPos = new String();
             int point = Integer.parseInt(errorInfo[1]) + pointInfo[0].length() + 2;
             for(int i = 0; i < point; i++) {
-                if(errorInfo[0].charAt(i) != '\t')
+                if(errorInfo[0].charAt(i) != '\t') {
                     pointPos = pointPos + " ";
-                else pointPos = pointPos + "\t";
+                } else {
+                    pointPos = pointPos + "\t";
+                }
             }
             pointPos = pointPos + "^";
 

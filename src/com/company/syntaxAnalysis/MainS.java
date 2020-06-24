@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *主函数
  *
- * @author zcy10
+ * @author jun
  * @version 1.0
  */
 public class MainS {
@@ -37,5 +37,8 @@ public class MainS {
         Syntax.output(syntaxOutFilename);
         Syntax.errorOutput(errorFilename);
         System.out.println(32321);
+//        int 整形;
+//        整形=5;
+//        System.out.println(整形);
     }
 }

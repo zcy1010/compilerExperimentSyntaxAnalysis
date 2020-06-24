@@ -11,110 +11,27 @@ import java.util.List;
 /**
  * 语法分析
  *
- * @author zcy10
+ * @author jun
  * @version 1.0
  */
 public class SyntaxAnalysis {
-    private static TokenType currentToken;//当前TokenType
-    private static String currentValue;//当前token的value
+    //当前TokenType
+    private static TokenType currentToken;
+    //当前token的value
+    private static String currentValue;
+    //下一个TokenType
+    private static TokenType nextToken;
+    //下一个token的value
+    private static String nextValue;
+    //词法分析后的列表的将赋给他
+    private static List<String> tokenList = new ArrayList<>();
+    //错误列表
+    private static List<String> errorList = new ArrayList<>();
+    //抽象语法树遍历结果
+    private StringBuilder treeResult = new StringBuilder();
+    //当前指示的token，即第几行
+    private static int pointer = 0;
 
-    private static TokenType nextToken;//下一个TokenType
-    private static String nextValue;//下一个token的value
-
-    private static List<String> tokenList = new ArrayList<>();//词法分析后的列表的将赋给他
-    private static List<String> errorList = new ArrayList<>();//错误列表
-    private StringBuilder treeResult = new StringBuilder();//抽象语法树遍历结果
-    private static int pointer = 0;//当前指示的token，即第几行
-
-    public void setTokenList(List<String> tokenList) {
-        SyntaxAnalysis.tokenList = tokenList;
-//        System.out.println(tokenList);
-    }
-
-    /**
-     * 处理函数
-     */
-    public void analysis() {
-        nextToken();
-        while (pointer < tokenList.size()) {
-            treeResult = TreeNode.preOrder(Goal(), treeResult, "|-").append("\r\n");
-        }
-    }
-
-    /**
-     * 输出结果至文件
-     *
-     * @param outputFilename 结果输出文件名
-     * @throws FileNotFoundException
-     * @throws UnsupportedEncodingException
-     */
-    public void output(String outputFilename) throws FileNotFoundException, UnsupportedEncodingException {
-        PrintWriter writer = new PrintWriter(outputFilename, "UTF-8");
-        writer.write(treeResult.toString());
-        writer.close();
-    }
-
-    /**
-     * 输出错误至文件
-     *
-     * @param errorFilename 错误结果输出文件名
-     * @throws UnsupportedEncodingException
-     * @throws IOException
-     */
-    public void errorOutput(String errorFilename) throws UnsupportedEncodingException, IOException {
-        PrintWriter writer = new PrintWriter(errorFilename, "UTF-8");
-        for (String temp : errorList)
-            writer.write(temp + "\n");
-
-        writer.close();
-    }
-
-    private static void nextToken() {
-        if (pointer < tokenList.size()) {
-            String temp = tokenList.get(pointer);
-            String[] info = temp.split(",");
-            if(info.length==2){
-                currentToken = TokenType.valueOf(info[1]);
-                currentValue = info[0];
-            }else {
-                currentToken = TokenType.valueOf("COMMA");
-                currentValue = ",";
-            }
-
-            pointer++;
-        }
-    }
-
-    private static void getNextWord() {
-        if (pointer < tokenList.size()) {
-            String temp = tokenList.get(pointer);
-            String[] info = temp.split(",");
-            if(info.length==2){
-                nextToken = TokenType.valueOf(info[1]);
-                nextValue = info[0];
-            }else {
-                nextToken = TokenType.valueOf("COMMA");
-                nextValue = ",";
-            }
-        }
-    }
-
-    private static boolean match(TokenType need) {
-        if (currentToken == need) {
-            nextToken();
-            return true;
-        } else {
-            String errorInfo = "The " + pointer + " Token : <" +
-                    currentToken + " , " + currentValue
-                    + "> is wrong , The expected token type is \"" +
-                    need + "\".";
-//            System.out.println(pointer+"  "+currentToken+"  "+currentValue);
-            System.err.println(errorInfo);
-            errorList.add(errorInfo);
-            nextToken();
-            return false;
-        }
-    }
 
     private static TreeNode Goal() {
         TreeNode goal = new TreeNode();
@@ -128,6 +45,7 @@ public class SyntaxAnalysis {
         match(TokenType.EOF);
         return goal;
     }
+
 
     private static TreeNode MainClass() {
         TreeNode mainClass = new TreeNode();
@@ -153,11 +71,6 @@ public class SyntaxAnalysis {
 
         match(TokenType.RPAREN);
         match(TokenType.LBRACE);
-//        getNextWord();
-//        while (currentToken == TokenType.INT || currentToken == TokenType.BOOLEAN || (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.IDENTIFIER)) {
-//            mainClass.children.add(VarDeclaration());
-//            getNextWord();
-//        }
         mainClass.children.add(Statement());
         match(TokenType.RBRACE);
         match(TokenType.RBRACE);
@@ -258,7 +171,7 @@ public class SyntaxAnalysis {
         TreeNode type = new TreeNode();
         type.setStatement(Statement.TYPE);
         getNextWord();
-        TokenType thisNextToken=nextToken;
+        TokenType thisNextToken = nextToken;
         switch (currentToken) {
             case INT:
                 if (thisNextToken == TokenType.LBRACKET) {
@@ -379,7 +292,7 @@ public class SyntaxAnalysis {
         TreeNode statement = new TreeNode();
         statement.setStatement(Statement.STATEMENT);
         getNextWord();
-        TokenType thisNextToken=nextToken;
+        TokenType thisNextToken = nextToken;
         switch (currentToken) {
             case LBRACE:
                 statement.children.add(Statements());
@@ -402,24 +315,7 @@ public class SyntaxAnalysis {
                 }
                 break;
         }
-//        if (currentToken == TokenType.LBRACE) {
-//            statement.children.add(Statements());
-//        }
-//        if (currentToken == TokenType.IF) {
-//            statement.children.add(IfStatement());
-//        }
-//        if (currentToken == TokenType.WHILE) {
-//            statement.children.add(WhileStatement());
-//        }
-//        if (currentToken == TokenType.SYSTEMOUTPRINTLN) {
-//            statement.children.add(PrintStatement());
-//        }
-//        if (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.EQUAL) {
-//            statement.children.add(AssignStatement());
-//        }
-//        if (currentToken == TokenType.IDENTIFIER && nextToken == TokenType.LBRACKET) {
-//            statement.children.add(ArrayStatement());
-//        }
+
         return statement;
     }
 
@@ -524,7 +420,7 @@ public class SyntaxAnalysis {
         TreeNode expression = new TreeNode();
         expression.setStatement(Statement.EXPRESSION);
         getNextWord();
-        TokenType thisNextToken=nextToken;
+        TokenType thisNextToken = nextToken;
         switch (currentToken) {
             case INTEGERLITERAL:
                 expression.children.add(IntExpression());
@@ -564,33 +460,7 @@ public class SyntaxAnalysis {
                 errorList.add(errorInfo);
                 nextToken();
         }
-//        if (currentToken == TokenType.INTEGERLITERAL) {
-//            expression.children.add(IntExpression());
-//        }
-//        if (currentToken == TokenType.TRUE) {
-//            expression.children.add(TrueExpression());
-//        }
-//        if (currentToken == TokenType.FALSE) {
-//            expression.children.add(FalseExpression());
-//        }
-//        if (currentToken == TokenType.IDENTIFIER) {
-//            expression.children.add(IdentifierExpression());
-//        }
-//        if (currentToken == TokenType.THIS) {
-//            expression.children.add(ThisExpression());
-//        }
-//        if (currentToken == TokenType.NEW && nextToken == TokenType.INT) {
-//            expression.children.add(NewArrayExpression());
-//        }
-//        if (currentToken == TokenType.NEW && nextToken == TokenType.IDENTIFIER) {
-//            expression.children.add(NewExpression());
-//        }
-//        if (currentToken == TokenType.EXCLAMATION) {
-//            expression.children.add(NoExpression());
-//        }
-//        if (currentToken == TokenType.LPAREN) {
-//            expression.children.add(BraceExpression());
-//        }
+
         return expression;
     }
 
@@ -687,8 +557,8 @@ public class SyntaxAnalysis {
         TreeNode L = new TreeNode();
         L.setStatement(Statement.L);
         getNextWord();
-        TokenType thisNextToken=nextToken;
-        switch (currentToken){
+        TokenType thisNextToken = nextToken;
+        switch (currentToken) {
             case DOUBLEAND:
                 L.children.add(OPL());
                 break;
@@ -707,10 +577,10 @@ public class SyntaxAnalysis {
             case LBRACKET:
                 L.children.add(ExpressionL());
             case FULLSTOP:
-                if( thisNextToken == TokenType.LENGTH){
+                if (thisNextToken == TokenType.LENGTH) {
                     L.children.add(LengthL());
                 }
-                if(thisNextToken == TokenType.IDENTIFIER){
+                if (thisNextToken == TokenType.IDENTIFIER) {
                     L.children.add(MethodL());
                 }
                 break;
@@ -718,24 +588,98 @@ public class SyntaxAnalysis {
                 L.children.add(NullL());
                 break;
         }
-//        if (currentToken == TokenType.DOUBLEAND
-//                || currentToken == TokenType.LESSTHEN
-//                || currentToken == TokenType.PLUS
-//                || currentToken == TokenType.HYPHEN
-//                || currentToken == TokenType.MULTIPLY) {
-//            L.children.add(OPL());
-//        } else if (currentToken == TokenType.LBRACKET) {
-//            L.children.add(ExpressionL());
-//        } else if (currentToken == TokenType.FULLSTOP && nextToken == TokenType.LENGTH) {
-//            L.children.add(LengthL());
-//        } else if (currentToken == TokenType.FULLSTOP && nextToken == TokenType.IDENTIFIER) {
-//            L.children.add(MethodL());
-//        } else {
-//            L.children.add(NullL());
-//        }
+
         return L;
     }
 
+    public void setTokenList(List<String> tokenList) {
+        SyntaxAnalysis.tokenList = tokenList;
+    }
+
+    /**
+     * 处理函数
+     */
+    public void analysis() {
+        nextToken();
+        while (pointer < tokenList.size()) {
+            treeResult = TreeNode.preOrder(Goal(), treeResult, "|-").append("\r\n");
+        }
+    }
+
+    /**
+     * 输出结果至文件
+     *
+     * @param outputFilename 结果输出文件名
+     * @throws FileNotFoundException
+     * @throws UnsupportedEncodingException
+     */
+    public void output(String outputFilename) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter(outputFilename, "UTF-8");
+        writer.write(treeResult.toString());
+        writer.close();
+    }
+
+    /**
+     * 输出错误至文件
+     *
+     * @param errorFilename 错误结果输出文件名
+     * @throws UnsupportedEncodingException
+     * @throws IOException
+     */
+    public void errorOutput(String errorFilename) throws UnsupportedEncodingException, IOException {
+        PrintWriter writer = new PrintWriter(errorFilename, "UTF-8");
+        for (String temp : errorList) {
+            writer.write(temp + "\n");
+        }
+
+        writer.close();
+    }
+
+    private static void nextToken() {
+        if (pointer < tokenList.size()) {
+            String temp = tokenList.get(pointer);
+            String[] info = temp.split(",");
+            if (info.length == 2) {
+                currentToken = TokenType.valueOf(info[1]);
+                currentValue = info[0];
+            } else {
+                currentToken = TokenType.valueOf("COMMA");
+                currentValue = ",";
+            }
+
+            pointer++;
+        }
+    }
+
+    private static void getNextWord() {
+        if (pointer < tokenList.size()) {
+            String temp = tokenList.get(pointer);
+            String[] info = temp.split(",");
+            if (info.length == 2) {
+                nextToken = TokenType.valueOf(info[1]);
+                nextValue = info[0];
+            } else {
+                nextToken = TokenType.valueOf("COMMA");
+                nextValue = ",";
+            }
+        }
+    }
+
+    private static boolean match(TokenType need) {
+        if (currentToken == need) {
+            nextToken();
+            return true;
+        } else {
+            String errorInfo = "The " + pointer + " Token : <" +
+                    currentToken + " , " + currentValue
+                    + "> is wrong , The expected token type is \"" +
+                    need + "\".";
+            System.err.println(errorInfo);
+            errorList.add(errorInfo);
+            nextToken();
+            return false;
+        }
+    }
 }
 
 

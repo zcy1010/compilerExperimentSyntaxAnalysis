@@ -3,7 +3,7 @@ package com.company.syntaxAnalysis;
 /**
  * 词的类型
  *
- * @author zcy10
+ * @author jun
  * @version 1.0
  */
 public enum TokenType {

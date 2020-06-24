@@ -3,7 +3,7 @@ package com.company.syntaxAnalysis;
 /**
  * 语法树的状态
  *
- * @author zcy10
+ * @author jun
  * @version 1.0
  */
 public enum Statement {
